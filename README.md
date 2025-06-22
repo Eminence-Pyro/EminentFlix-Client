@@ -106,21 +106,17 @@ Visit: [http://localhost:3000](http://localhost:3000)
 * Set environment variables (`MONGO_URI`, `JWT_SECRET`)
 * Choose Node environment and auto-deploy
 
-### Frontend (Netlify or Vercel):
+### Frontend (Netlify):
 
 * Build: `npm run build`
 * Publish directory: `/client/build`
 * Set `REACT_APP_TMDB_API_KEY` in environment settings
 
 
-## 📷 Screenshots
-
-> *Include screenshots here after deployment if needed.*
-
 
 ## 🙌 Author
 
-**Divine Nnata** – Fullstack developer | Passionate about solving real problems with code.
+**Divine Nnata** – FStudent ullstack developer | Passionate about solving real problems with code.
 
 
 ## 📄 License
