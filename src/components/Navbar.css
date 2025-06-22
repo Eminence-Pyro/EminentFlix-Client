@@ -1,0 +1,53 @@
+.navbar {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 0.75rem;
+}
+
+.app-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-link {
+  margin-left: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #0077cc;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.username {
+  margin-right: 1rem;
+}
+
+.logout-button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}

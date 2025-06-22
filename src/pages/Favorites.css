@@ -1,0 +1,29 @@
+.favorites-container {
+  padding: 2rem;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.favorite-card {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.favorite-poster {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.no-image {
+  height: 200px;
+  background: #eee;
+  line-height: 200px;
+}

@@ -1,0 +1,26 @@
+.movie-detail-container {
+  padding: 2rem;
+}
+
+.movie-poster {
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.save-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.loading {
+  padding: 2rem;
+}
