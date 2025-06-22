@@ -1,19 +1,36 @@
-// client/src/components/Search.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './Search.css';
+import MovieCard from './MovieCard'; // ✅ New reusable component
+import './Home.css';
 
-const Search = () => {
+const Home = () => {
   const [query, setQuery] = useState('');
   const [year, setYear] = useState('');
   const [minRating, setMinRating] = useState('');
   const [sortBy, setSortBy] = useState('popularity.desc');
   const [results, setResults] = useState([]);
 
+  const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+
+  // ✅ Load popular movies on page load
+  useEffect(() => {
+    const fetchPopularMovies = async () => {
+      try {
+        const res = await axios.get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+        );
+        setResults(res.data.results);
+      } catch (err) {
+        console.error('Error loading popular movies:', err);
+      }
+    };
+
+    fetchPopularMovies();
+  }, [API_KEY]);
+
+  // 🔍 Run when user submits search
   const searchMovies = async (e) => {
     e.preventDefault();
-    const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
     let url;
     if (query) {
@@ -28,7 +45,7 @@ const Search = () => {
       const res = await axios.get(url);
       setResults(res.data.results);
     } catch (err) {
-      console.error('Error fetching movies:', err);
+      console.error('Error searching for movies:', err);
     }
   };
 
@@ -64,26 +81,12 @@ const Search = () => {
       </form>
 
       <div className="movie-grid">
-        {results.map(movie => (
-          <Link to={`/movie/${movie.id}`} key={movie.id} className="movie-card">
-            {movie.poster_path ? (
-              <img
-                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                alt={movie.title}
-              />
-            ) : (
-              <div className="no-image">No Image</div>
-            )}
-            <div className="movie-info">
-              <h3>{movie.title}</h3>
-              <p>⭐ {movie.vote_average}</p>
-              <p>📅 {movie.release_date?.slice(0, 4)}</p>
-            </div>
-          </Link>
+        {results.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </div>
   );
 };
 
-export default Search;
+export default Home;
